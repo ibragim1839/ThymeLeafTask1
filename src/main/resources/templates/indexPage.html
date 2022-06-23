@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/main.html">
+<div layout:fragment="mainContent" >
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>SURNAME</th>
+            <th>EXAM</th>
+            <th>MARK</th>
+            <th>DETAILS</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each=" student : ${students}">
+            <td th:if="${student.score} < 50">
+                <span th:text="${student.id}" class="text-danger"></span>
+            </td>
+            <td th:if="${student.score} < 50">
+                <span th:text="${student.name}" class="text-danger"></span>
+            </td>
+            <td th:if="${student.score} < 50">
+                <span th:text="${student.surname}" class="text-danger"></span>
+            </td>
+            <td th:if="${student.score} < 50">
+                <span th:text="${student.score}" class="text-danger"></span>
+            </td>
+            <td th:if="${student.score} < 50">
+                <span class="text-danger">F</span>
+            </td>
+
+            <td th:if="${student.score} > 50">
+                <span th:text="${student.id}"></span>
+            </td>
+            <td th:if="${student.score} > 50">
+                <span th:text="${student.name}"></span>
+            </td>
+            <td th:if="${student.score} > 50">
+                <span th:text="${student.surname}"></span>
+            </td>
+            <td th:if="${student.score} > 50">
+                <span th:text="${student.score}"></span>
+            </td>
+            <td th:if="${student.score} > 50">
+                <div th:if="${student.score gt 50 and student.score lt 60}">
+                    <span>E</span>
+                </div>
+                <div th:if="${student.score gt 60 and student.score lt 70}">
+                    <span>D</span>
+                </div>
+                <div th:if="${student.score gt 70 and student.score lt 80}">
+                    <span>C</span>
+                </div>
+                <div th:if="${student.score gt 80 and student.score lt 90}">
+                    <span>B</span>
+                </div>
+                <div th:if="${student.score gt 90 and student.score lt 100}">
+                    <span>A</span>
+                </div>
+            </td>
+            <td><a th:href="@{'/'}" class="btn btn-success btn-sm">DETAILS</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</html>

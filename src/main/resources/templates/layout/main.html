@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <meta charset="UTF-8">
+        <title>IndexPage</title>
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    </head>
+    <body>
+        <div class="container" style="min-height: 600px">
+           <div class="row">
+               <div class="col-12">
+                   <div th:insert="~{'navbar'}"></div>
+               </div>
+           </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div layout:fragment="mainContent"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="container-fluid bg-dark text-light mt-3">
+
+            <div class="row">
+                <div class="col-12">
+                    <p class="text-center">
+                        Copyright &copy; 2022
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+</html>
